@@ -1,12 +1,19 @@
 # WEBoTron - Frontend (Client)
 ## Templates for *different environment sites construction* under GIT branching
 
-## NPM packets installation
-### UI styles library "Materialize" https://materializecss.com/
-npm i materialize-css@next
+## Requirements
 
-### Site Pages routing
-npm i react-router-dom
+Webpack (imports/exports)
+    
+    Babel
+    Material-UI
+    Eslint
+    2 Modes:
+        - Dev
+            SourceMaps, Eslint, Not Minified JS
+        - Prod
+            Minified Code
+        
 
 ---
 ---
