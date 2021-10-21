@@ -1,17 +1,18 @@
 import React from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {useRoutes} from './routes'
-import {Navbar} from "./components/Navbar";
+import {NavBar} from "./components/NavBar";
+import Box from "@mui/material/Box";
 
 function App() {
     const routes = useRoutes()
 
     return (
         <Router>
-            <Navbar />
-            <div className="container">
+            <NavBar />
+            <Box>
                 {routes}
-            </div>
+            </Box>
         </Router>
     )
 }
