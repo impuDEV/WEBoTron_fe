@@ -7,10 +7,9 @@ Webpack (imports/exports)
     
     Babel
     Material-UI
-    Eslint
     2 Modes:
         - Dev
-            SourceMaps, Eslint, Not Minified JS
+            DevServer, SourceMaps, Not Minified JS
         - Prod
             Minified Code
         
