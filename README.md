@@ -3,6 +3,10 @@
 
 ## Requirements
 
+Redux
+
+
+
 Webpack (imports/exports)
     
     Babel

@@ -1,10 +1,11 @@
 import React from 'react'
+import MyCustomers from "../components/MyCustomers";
+import ConfigApp from "../components/configs/ConfigApp";
 
 export const AboutPage = () => {
     return (
-        <div className="row">
-            <span>About text</span>
-        </div>
-
+        <React.Fragment>
+            <MyCustomers />
+        </React.Fragment>
     )
 }

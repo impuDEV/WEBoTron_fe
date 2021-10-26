@@ -2,6 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {Box, AppBar, Toolbar, IconButton, Typography, Link} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import ConfigApp from "./configs/ConfigApp"
 
 export const NavBar = () => {
     return (
@@ -21,6 +22,7 @@ export const NavBar = () => {
                         <Link color="inherit" href="/">Main</Link>
                     </Typography>
                     <NavLink to="/about">About</NavLink>
+                    <ConfigApp />
                 </Toolbar>
             </AppBar>
         </Box>
