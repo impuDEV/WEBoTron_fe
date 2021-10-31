@@ -2,8 +2,11 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {Box, AppBar, Toolbar, IconButton, Typography, Link} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import ConfigMenu from "./config/ConfigMenu";
 
 export const NavBar = () => {
+    const projectTitle = ''
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -21,6 +24,7 @@ export const NavBar = () => {
                         <Link color="inherit" href="/">Main</Link>
                     </Typography>
                     <NavLink to="/about">About</NavLink>
+                    <ConfigMenu />
                 </Toolbar>
             </AppBar>
         </Box>

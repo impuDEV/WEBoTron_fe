@@ -2,18 +2,19 @@ import React from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {useRoutes} from './routes'
 import {NavBar} from "./components/NavBar";
-import Box from "@mui/material/Box";
+import {ThemeProvider, useTheme} from "@mui/material";
 
 function App() {
     const routes = useRoutes()
+    const appTheme = useTheme()
 
     return (
-        <Router>
-            <NavBar />
-            <Box>
+        <ThemeProvider theme={appTheme}>
+            <Router>
+                <NavBar />
                 {routes}
-            </Box>
-        </Router>
+            </Router>
+        </ThemeProvider>
     )
 }
 
