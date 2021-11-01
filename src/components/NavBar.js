@@ -5,7 +5,6 @@ import MenuIcon from "@mui/icons-material/Menu"
 import ConfigMenu from "./config/ConfigMenu";
 
 export const NavBar = () => {
-    const projectTitle = ''
 
     return (
         <Box sx={{ flexGrow: 1 }}>
