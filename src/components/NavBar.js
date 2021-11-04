@@ -4,7 +4,9 @@ import {Box, AppBar, Toolbar, IconButton, Typography, Link} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import ConfigApp from "./configs/ConfigApp"
 
+
 export const NavBar = () => {
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -22,7 +24,9 @@ export const NavBar = () => {
                         <Link color="inherit" href="/">Main</Link>
                     </Typography>
                     <NavLink to="/about">About</NavLink>
+
                     <ConfigApp />
+
                 </Toolbar>
             </AppBar>
         </Box>

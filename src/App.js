@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useMemo, useState} from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {useRoutes} from './routes'
 import {NavBar} from "./components/NavBar";
@@ -17,7 +17,9 @@ function ThemedApp() {
     const dispatch = useDispatch()
     const cash = useSelector(state => state.cash.cash)
 
+
     const routes = useRoutes()
+
 
     const addCash = (amount) => {
         dispatch({type: "ADD_CASH", payload: amount})
@@ -63,7 +65,6 @@ function ThemedApp() {
                 </Box>
             </Router>
         </ThemeProvider>
-
     )
 }
 
