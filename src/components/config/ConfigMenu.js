@@ -16,8 +16,7 @@ const ConfigMenu = () => {
         setAnchorEl(null)
     }
 
-    const config = useConfig()
-    // console.log(config)
+    const {colorTheme, setLightTheme, setDarkTheme} = useConfig()
 
     return (
         <React.Fragment>
@@ -59,9 +58,9 @@ const ConfigMenu = () => {
             >
                 <MenuItem>test</MenuItem>
                 <Divider />
-                <MenuItem onClick={config.toggleThemeLight}>
-                    {config.options.lightMode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon /> }
-                    {config.options.lightMode} mode
+                <MenuItem onClick={colorTheme === 'dark'? setLightTheme : setDarkTheme}>
+                    {colorTheme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon /> }
+                    {colorTheme} mode
                 </MenuItem>
             </Menu>
         </React.Fragment>
