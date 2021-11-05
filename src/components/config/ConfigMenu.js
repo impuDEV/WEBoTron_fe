@@ -1,33 +1,33 @@
-import React, {useContext, useState} from 'react';
+import React from 'react'
 import {IconButton, Menu, MenuItem, Divider, } from "@mui/material";
 import {Settings} from "@mui/icons-material";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {useConfig} from "./ConfigContext";
+import {hideConfigMenu, showConfigMenu} from "@/redux/configActions";
+import {connect} from "react-redux";
+import ThemeMenuItem from "@/components/config/ThemeMenuItem";
 
-const ConfigMenu = () => {
-    const [anchorEl, setAnchorEl] = useState(null)
-    const open = Boolean(anchorEl)
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget)
-    }
-    const handleClose = () => {
-        setAnchorEl(null)
+class ConfigMenu extends React.Component {
+    constructor(props) {
+        super(props)
     }
 
-    const config = useConfig()
-    // console.log(config)
+    clickHandler = event => {
+        this.props.showConfigMenu(event.currentTarget)
+    }
 
-    return (
+    closeHandler = () => {
+        this.props.hideConfigMenu()
+    }
+
+    render() {
+        return (
         <React.Fragment>
-            <IconButton color="inherit" onClick={handleClick} sx={{ ml:2 }}>
+            <IconButton color="inherit" onClick={this.clickHandler} sx={{ ml:2 }}>
                 <Settings fontSize="large" />
             </IconButton>
             <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
+                anchorEl={this.props.anchorEl}
+                open={Boolean(this.props.anchorEl)}
+                onClose={this.closeHandler}
                 PaperProps={{
                     elevation: 0,
                     sx: {
@@ -59,13 +59,19 @@ const ConfigMenu = () => {
             >
                 <MenuItem>test</MenuItem>
                 <Divider />
-                <MenuItem onClick={config.toggleThemeLight}>
-                    {config.options.lightMode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon /> }
-                    {config.options.lightMode} mode
-                </MenuItem>
+                <ThemeMenuItem />
             </Menu>
         </React.Fragment>
-    );
-};
+        )
+    }
+}
 
-export default ConfigMenu;
+const mapDispatchToProps = {
+    showConfigMenu, hideConfigMenu
+}
+
+const mapStateToProps = state => ({
+    anchorEl: state.config.anchorEl
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfigMenu)
