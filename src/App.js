@@ -6,6 +6,7 @@ import {createTheme, ThemeProvider} from "@mui/material";
 import {useSelector} from "react-redux";
 
 
+
 function App() {
     const routes = useRoutes()
 
@@ -17,6 +18,7 @@ function App() {
                 mode: theme
             }
         }), //[config]
+
     )
 
     return (
