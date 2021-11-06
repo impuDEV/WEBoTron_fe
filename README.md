@@ -2,6 +2,11 @@
 ## Templates for *different environment sites construction* under GIT branching
 
 ## Requirements
+Redux
+
+    synchronous
+    asynchronous (thunk)
+    loaders types
 
 Webpack (imports/exports)
     
