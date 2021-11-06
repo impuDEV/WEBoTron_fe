@@ -1,9 +1,9 @@
 import React from 'react'
 import {IconButton, Menu, MenuItem, Divider, } from "@mui/material";
 import {Settings} from "@mui/icons-material";
-import {hideConfigMenu, showConfigMenu} from "@/redux/configActions";
 import {connect} from "react-redux";
 import ThemeMenuItem from "@/components/config/ThemeMenuItem";
+import {hideConfigMenu, showConfigMenu} from "@/redux/configActions";
 
 class ConfigMenu extends React.Component {
     constructor(props) {

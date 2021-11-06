@@ -6,6 +6,8 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import {rootReducer} from "@/redux/rootReducer";
 
+document.getElementById('appLoader').style.display = 'none'
+
 const store = createStore(rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
