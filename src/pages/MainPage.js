@@ -1,21 +1,34 @@
 import React from 'react'
-import {Box} from "@mui/material";
+import {Box, Button} from "@mui/material";
+import Loader from "@/components/Loader";
+import {useDispatch} from "react-redux";
+import {hideLoader, showLoader} from "@/redux/appActions";
 
 export const MainPage = () => {
+    const dispatch = useDispatch()
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                width: '100%',
-                height: '800px',
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: 'background.default',
-                color: 'text.primary',
-            }}
-        >
-            Main
-        </Box>
+        <React.Fragment>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    bgcolor: 'background.default',
+                    color: 'text.primary',
+                }}
+            >
+                <Button variant="contained" color="primary"
+                        onClick={() => dispatch(showLoader())}
+                >
+                    Показать лоадер
+                </Button>
+                <Button  variant="contained" color="secondary"
+                         onClick={() => dispatch(hideLoader())}
+                >
+                    Убрать лоадер
+                </Button>
+            </Box>
+            <Loader />
+        </React.Fragment>
 
     )
 }

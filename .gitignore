@@ -2,12 +2,13 @@
 
 # WEB Storm
 /.idea
+package-lock.json
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
+
 
 dist
 

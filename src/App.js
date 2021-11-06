@@ -3,22 +3,23 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {useRoutes} from './routes'
 import {NavBar} from "./components/NavBar";
 import {createTheme, ThemeProvider} from "@mui/material";
-import {useConfig} from "./components/config/ConfigContext";
+import {useSelector} from "react-redux";
+
 
 
 function App() {
     const routes = useRoutes()
 
-    const {colorTheme} = useConfig()
+    const theme = useSelector(state => state.config.colorTheme)
 
     const appTheme = useMemo(
         () => createTheme({
             palette: {
-                mode: colorTheme
+                mode: theme
             }
-        }), [colorTheme]
-    )
+        }), //[config]
 
+    )
 
     return (
         <ThemeProvider theme={appTheme}>
