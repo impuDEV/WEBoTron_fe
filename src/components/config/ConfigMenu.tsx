@@ -1,34 +1,31 @@
-import React from 'react'
-import {IconButton, Menu, MenuItem, Divider, } from "@mui/material";
+import React, {FC} from "react";
+import {Divider, IconButton, Menu, MenuItem} from "@mui/material";
 import {Settings} from "@mui/icons-material";
-import {connect} from "react-redux";
-import ThemeMenuItem from "@/components/config/ThemeMenuItem";
-import {hideConfigMenu, showConfigMenu} from "@/redux/configActions";
+import ThemeMenuItem from "./ThemeMenuItem";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {showConfigMenu, hideConfigMenu} from '../../store/reducers/ConfigSlice'
 
-class ConfigMenu extends React.Component {
-    constructor(props) {
-        super(props)
+const ConfigMenu: FC = () => {
+    const anchorElement = useAppSelector(state => state.configReducer.anchorEl)
+    const dispatch = useAppDispatch()
+
+    const handleMenuClick = (e: React.MouseEvent<HTMLElement>) => {
+        dispatch(showConfigMenu(e.currentTarget))
     }
 
-    clickHandler = event => {
-        this.props.showConfigMenu(event.currentTarget)
+    const closeHandler = () => {
+        dispatch(hideConfigMenu())
     }
 
-    closeHandler = () => {
-        this.props.hideConfigMenu()
-    }
-
-
-    render() {
-        return (
+    return (
         <React.Fragment>
-            <IconButton color="inherit" onClick={this.clickHandler} sx={{ ml:2 }}>
+            <IconButton color="inherit" onClick={handleMenuClick} sx={{ ml:2 }}>
                 <Settings fontSize="large" />
             </IconButton>
             <Menu
-                anchorEl={this.props.anchorEl}
-                open={Boolean(this.props.anchorEl)}
-                onClose={this.closeHandler}
+                anchorEl={anchorElement}
+                open={Boolean(anchorElement)}
+                onClose={closeHandler}
                 PaperProps={{
                     elevation: 0,
                     sx: {
@@ -63,16 +60,7 @@ class ConfigMenu extends React.Component {
                 <ThemeMenuItem />
             </Menu>
         </React.Fragment>
-        )
-    }
+    )
 }
 
-const mapDispatchToProps = {
-    showConfigMenu, hideConfigMenu
-}
-
-const mapStateToProps = state => ({
-    anchorEl: state.config.anchorEl
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConfigMenu)
+export default ConfigMenu

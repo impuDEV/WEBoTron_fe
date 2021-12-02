@@ -13,7 +13,11 @@ const jsLoaders = () => {
         {
             loader: "babel-loader",
             options: {
-                presets: ['@babel/preset-react', "@babel/preset-env"]
+                presets: [
+                    '@babel/preset-typescript',
+                    '@babel/preset-react',
+                    "@babel/preset-env"
+                ]
             }
         }
     ]
@@ -24,7 +28,7 @@ const jsLoaders = () => {
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: "development",
-    entry: "./index.js",
+    entry: "./index.tsx",
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, "dist")
@@ -35,7 +39,7 @@ module.exports = {
         historyApiFallback: true
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.ts', '.tsx', '.js', '.json'],
         alias: {
             '@': path.resolve(__dirname, 'src')
         }
@@ -67,6 +71,16 @@ module.exports = {
             },
             {
                 test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: jsLoaders()
+            },
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: jsLoaders()
+            },
+            {
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: jsLoaders()
             }
