@@ -2,6 +2,9 @@
 ## Templates for *different environment sites construction* under GIT branching
 
 ## Requirements
+
+Typescript
+
 Redux
 
     synchronous

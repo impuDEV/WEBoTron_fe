@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box} from "@mui/material"
 import {createStyles, makeStyles} from '@mui/styles'
-import {useSelector} from "react-redux";
+import {useAppSelector} from "../hooks/redux";
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -31,12 +31,7 @@ const useStyles = makeStyles(() =>
 
 const Loader = () => {
     const classes = useStyles()
-    const loading = useSelector(state => state.app.loading)
-
-    if(loading)
-        return (<Box className={classes.bigLoader} />
-    )
-    return null
+    return (<Box className={classes.bigLoader} />)
 }
 
 export default Loader
